@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { useBox } from '@react-three/cannon';
 import { Vector3, MeshStandardMaterial, Color } from 'three';
-import { useStore } from '../store';
+import { useGameStore } from '../store';
 
 const ENEMY_SPEED = 3;
 const ENEMY_DAMAGE = 15;
@@ -66,10 +66,10 @@ function Monster({ position, id, health: initialHealth, type }: Monster) {
     args: MONSTER_TYPES[type].scale,
   }));
 
-  const playerPos = useStore((state) => state.position);
-  const damagePlayer = useStore((state) => state.damage);
-  const addScore = useStore((state) => state.addScore);
-  const addKill = useStore((state) => state.addKill);
+  const playerPos = useGameStore((state) => state.position);
+  const damagePlayer = useGameStore((state) => state.damage);
+  const addScore = useGameStore((state) => state.addScore);
+  const addKill = useGameStore((state) => state.addKill);
   
   const healthRef = useRef(initialHealth);
   const lastDamageTimeRef = useRef(0);
