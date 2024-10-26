@@ -149,3 +149,4 @@ function Monster({ position, id, health: initialHealth, type }: Monster) {
       </mesh>
     </group>
   );
+}
